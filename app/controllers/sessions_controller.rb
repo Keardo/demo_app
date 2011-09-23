@@ -7,7 +7,7 @@
     user = User.authenticate(params[:session][:email],
                       params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Неправильная комбинация пароля/emeil"
+      flash.now[:error] = "Email/password error"
       @title = "Sign in"
       render 'new'
     else
