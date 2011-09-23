@@ -5,8 +5,9 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', :group => :development
+gem 'sqlite3'
 gem 'gravatar_image_tag'
+gem 'will_paginate'
 
 
 # Gems used only for assets and not required
@@ -23,6 +24,7 @@ group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'spork', '0.9.0.rc8'
 	gem 'annotate'
+	gem 'faker'
 end
 
 group :test do
