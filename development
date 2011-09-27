@@ -1,4 +1,4 @@
-﻿BUNDLE_WITHOUT      => development:test
+BUNDLE_WITHOUT      => development:test
 DATABASE_URL        => postgres://lddmiargpp:xO-FqYK24DKkg_VX49yx@ec2-107-20-239-110.compute-1.amazonaws.com/lddmiargpp
 LANG                => en_US.UTF-8
 RACK_ENV            => production

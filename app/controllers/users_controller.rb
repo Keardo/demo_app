@@ -1,7 +1,7 @@
 ﻿class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update, :index, :destroy]
+  before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update]
-	 before_filter :admin_user,   :only => :destroy
+	before_filter :admin_user,   :only => :destroy
 	
 	def index
     @title = "All users"
@@ -52,8 +52,22 @@
       render 'edit'
     end
   end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
+  end
 	
-	 before_filter :admin_user,   :only => :destroy
+#	before_filter :admin_user,   :only => :destroy
 
   private
   def correct_user
@@ -61,13 +75,9 @@
     redirect_to root_path unless current_user?(@user)
   end
 
-  def authenticate
-    deny_access unless signed_in?
-  end
-	
-	  def admin_user
+	def admin_user
       redirect_to(root_path) unless current_user.admin?
-    end
+  end
 
 
 end

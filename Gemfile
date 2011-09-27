@@ -1,4 +1,4 @@
-﻿source 'http://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
@@ -30,6 +30,6 @@ end
 group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
-	gem 'factory_girl_rails' 
+	gem 'factory_girl_rails'
 	end
 
